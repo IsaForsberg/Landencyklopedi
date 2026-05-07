@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f4f5f7;
+  color: #222;
+  padding: 1.5rem;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+.search-section,
+.controls,
+.country-section,
+.region-section {
+  background: #fff;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.search-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 0.5rem 0.9rem;
+  border-radius: 4px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button[data-region] {
+  background: #0f766e;
+}
+
+button[data-region]:hover {
+  background: #0d5f58;
+}
+
+.region-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.hint {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.info {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.info.error {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.info:not(.error) {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.hidden {
+  display: none;
+}
+
+.country-details {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 2fr);
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.country-details.empty-state {
+  display: block;
+}
+
+.country-flag img {
+  max-width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.country-info p {
+  margin-bottom: 0.3rem;
+}
+
+.country-info p strong {
+  font-weight: 600;
+}
+
+.region-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.country-card {
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.5rem;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.country-card img {
+  max-width: 100%;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.25rem;
+}
+
+.country-card p {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Responsivitet */
+@media (max-width: 700px) {
+  .country-details {
+    grid-template-columns: 1fr;
+  }
+
+  .search-row {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
+
+.country-card {
+  background: #f9fafb;
+  border-radius: 6px;
+  padding: 0.5rem;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.country-card:hover {
+  background: #e5e7eb; /* ljusgrå */
+  transform: translateY(-2px); /* liten lyft-effekt */
+}
