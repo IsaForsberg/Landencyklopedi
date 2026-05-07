@@ -1,6 +1,9 @@
 ### 🌍 Länderencyklopedi – REST Countries App
 En enkel och användarvänlig webbapplikation som hämtar och visar information om länder med hjälp av REST Countries‑API:t. Användaren kan söka efter länder, bläddra mellan världsdelar och se detaljerad information på ett tydligt och strukturerat sätt.
 
+länk till app: https://isaforsberg.github.io/Landencyklopedi/
+annars ladda ned mappen och öppna genom index.html
+
 ## ✨ Funktioner
 Sök efter land via ett sökfält
 
