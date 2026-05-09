@@ -10,44 +10,44 @@
     <h1>Landencyklopedi</h1>
 
     <section class="search-section">
-      <label for="searchInput">Sök efter land</label>
+      <label for="searchInput">Search for a country</label>
       <div class="search-row">
-        <input id="searchInput" type="text" placeholder="Skriv t.ex. Sweden, Japan...">
-        <button id="searchBtn">Sök</button>
+        <input id="searchInput" type="text" placeholder="Type e.g. Sweden, Japan...">
+        <button id="searchBtn">Search</button>
       </div>
-      <p class="hint">Tip: Senaste sökning: <span id="lastSearchLabel">–</span></p>
+      <p class="hint">Tip: Last search: <span id="lastSearchLabel">–</span></p>
     </section>
 
     <section class="controls">
       <div class="regions">
-        <h2>Världsdelar</h2>
+        <h2>World Regions</h2>
         <div class="region-buttons" id="regions">
-          <button data-region="europe">Europa</button>
-          <button data-region="asia">Asien</button>
-          <button data-region="africa">Afrika</button>
+          <button data-region="europe">Europe</button>
+          <button data-region="asia">Asia</button>
+          <button data-region="africa">Africa</button>
           <button data-region="americas">Americas</button>
-          <button data-region="oceania">Oceanien</button>
+          <button data-region="oceania">Oceania</button>
         </div>
       </div>
 
       <div class="extra-filters">
-        <h2>Extra funktioner</h2>
-        <button id="sortByNameBtn">Sortera länder (A–Ö)</button>
+        <h2>Extra Features</h2>
+        <button id="sortByNameBtn">Sort Countries (A–Ö)</button>
       </div>
     </section>
 
-    <div id="loading" class="info hidden">Laddar data...</div>
+    <div id="loading" class="info hidden">Loading data...</div>
     <div id="error" class="info error hidden"></div>
 
     <section class="country-section">
-      <h2>Valt land</h2>
+      <h2>Selected Country</h2>
       <div id="countryContainer" class="country-details empty-state">
-        <p>Inget land valt ännu. Sök efter ett land eller välj en världsdel.</p>
+        <p>No country selected yet. Search for a country or select a world region.</p>
       </div>
     </section>
 
     <section class="region-section">
-      <h2>Länder i vald världsdel</h2>
+      <h2>Countries in Selected Region</h2>
       <div id="regionList" class="region-list">
         <!-- Länder från region visas här -->
       </div>
