@@ -30,7 +30,7 @@ export async function fetchCountry(name) {
     const data = await res.json();
     const country = data.data.objects[0];
 
-    if (!country) throw new Error("Inget land hittades med de
+    if (!country) throw new Error("Inget land hittades med den sökningen.");
 
     renderCountry(country);
 
