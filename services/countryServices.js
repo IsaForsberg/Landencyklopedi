@@ -18,10 +18,8 @@ export async function fetchCountry(name) {
       showError("Sökfältet är tomt. Skriv in ett land.");
       return;
     }
-
     showLoading();
     hideError();
-
      const res = await fetch(
       `${BASE_URL}/name?q=${encodeURIComponent(name)}`,
       { headers: { Authorization: `Bearer ${API_KEY}` } }
@@ -32,7 +30,7 @@ export async function fetchCountry(name) {
     const data = await res.json();
     const country = data.data.objects[0];
 
-    if (!res.ok) throw new Error("Inget land hittades med den sökningen.");
+    if (!country) throw new Error("Inget land hittades med de
 
     renderCountry(country);
 
@@ -45,7 +43,7 @@ export async function fetchCountry(name) {
   } finally {
     hideLoading();
   }
-}
+} 
 
 // Hämta region
 export async function fetchRegion(region) {
@@ -63,7 +61,7 @@ export async function fetchRegion(region) {
     const data = await res.json();
     const countries = data.data.objects;
 
-    renderRegionList(data);
+    renderRegionList(countries);
 
     localStorage.setItem("lastRegion", region);
 
