@@ -15,27 +15,27 @@ export function renderEmptyCountry() {
 
 // Visa ett land
 export function renderCountry(country) {
-  const currencies = country.currencies
-    ? Object.values(country.currencies)
-        .map(c => `${c.name} (${c.symbol || "-"})`)
-        .join(", ")
+  const currencies = country.currencies  && country.currencies.length
+      ?country.currencies.map(c => `${c.name} (${c.symbol || "-"})`).join(", ")
     : "Okänd";
 
-  const languages = country.languages
-    ? Object.values(country.languages).join(", ")
+  const languages = country.languages && country.languages.length
+   ? country.languages.map(l => l.name).join(", ")
     : "Okända";
 
-  const capital = country.capital ? country.capital.join(", ") : "Ingen uppgift";
+  const capital = country.capital && country.capitals.length
+    ? country.capitals.map(c => c.name).join(", ")
+    : "Ingen uppgift";
 
   countryContainer.classList.remove("empty-state");
 
   countryContainer.innerHTML = `
     <div class="country-flag">
-      <h3>${country.name.common}</h3>
-      <img src="${country.flags.svg}" alt="Flagga för ${country.name.common}">
+      <h3>${country.names.common}</h3>
+      <img src="${country.flag.url_svg}" alt="Flagga för ${country.names.common}">
     </div>
     <div class="country-info">
-      <p><strong>Officiellt namn:</strong> ${country.name.official}</p>
+      <p><strong>Officiellt namn:</strong> ${country.names.official}</p>
       <p><strong>Huvudstad:</strong> ${capital}</p>
       <p><strong>Region:</strong> ${country.region}</p>
       <p><strong>Subregion:</strong> ${country.subregion || "Ingen uppgift"}</p>
@@ -56,9 +56,9 @@ export function renderRegionList(countries) {
 
   const html = countries
     .map(c => `
-      <div class="country-card" data-country="${c.name.common}">
-        <img src="${c.flags.svg}" alt="Flagga för ${c.name.common}">
-        <p>${c.name.common}</p>
+      <div class="country-card" data-country="${c.names.common}">
+        <img src="${c.flag.url_svg}" alt="Flagga för ${c.names.common}">
+        <p>${c.names.common}</p>
       </div>
     `)
     .join("");
