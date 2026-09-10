@@ -9,6 +9,8 @@ import {
   updateLastSearchLabel
 } from "../ui/render.js";
 
+const API_KEY = "rc_live_261b0bd9cf664c0990236dc6613824d0";
+const BASE_URL = "https://api.restcountries.com/countries/v5";
 // Hämta ett land
 export async function fetchCountry(name) {
   try {
@@ -20,14 +22,17 @@ export async function fetchCountry(name) {
     showLoading();
     hideError();
 
-    const res = await fetch(
-      `https://restcountries.com/v3.1/name/${encodeURIComponent(name)}?fullText=false`
+     const res = await fetch(
+      `${BASE_URL}/name?q=${encodeURIComponent(name)}`,
+      { headers: { Authorization: `Bearer ${API_KEY}` } }
     );
 
-    if (!res.ok) throw new Error("Inget land hittades med den sökningen.");
+    if (!res.ok) throw new Error("Något gick fel mot API:et.");
 
     const data = await res.json();
-    const country = data[0];
+    const country = data.data.objects[0];
+
+    if (!res.ok) throw new Error("Inget land hittades med den sökningen.");
 
     renderCountry(country);
 
@@ -49,18 +54,20 @@ export async function fetchRegion(region) {
     hideError();
 
     const res = await fetch(
-      `https://restcountries.com/v3.1/region/${encodeURIComponent(region)}`
+      `${BASE_URL}/region/${encodeURIComponent(region)}`,
+      { headers: { Authorization: `Bearer ${API_KEY}` } }
     );
 
     if (!res.ok) throw new Error("Kunde inte hämta länder för vald världsdel.");
 
     const data = await res.json();
+    const countries = data.data.objects;
 
     renderRegionList(data);
 
     localStorage.setItem("lastRegion", region);
 
-    return data; // Viktigt för sortering i app.js
+    return countries; // Viktigt för sortering i app.js
 
   } catch (err) {
     showError(err.message);
