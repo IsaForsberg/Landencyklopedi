@@ -14,7 +14,7 @@ function sortCurrentRegionByName() {
   if (!currentRegionCountries.length) return;
 
   currentRegionCountries.sort((a, b) =>
-    a.name.common.localeCompare(b.name.common, "sv")
+    a.names.common.localeCompare(b.names.common, "sv")
   );
 
   renderRegionList(currentRegionCountries);
